@@ -14,8 +14,7 @@ export default function Email() {
                     <Switch >
                     <Redirect exact from="/" to="/inbox" />
                     <Route exact path="/:folderId" component={EmailList} />
-                    {/* <EmailList folderId="inbox" /> */}
-                    {/* <SingleEmail folderId="inbox" emailId="1" /> */}
+                    <Route path="/:folderId/:emailId" component={SingleEmail} />
                     </Switch>
                 </main>
             </div>
