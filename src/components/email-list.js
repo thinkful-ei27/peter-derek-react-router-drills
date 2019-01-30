@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import './email-list.css';
 
+
 export function EmailList(props) {
     const emails = props.emailList.map((email, index) =>
         <li key={index} className="email-list-email">
@@ -25,7 +26,8 @@ export function EmailList(props) {
 }
 
 const mapStateToProps = (state, props) => {
-    const folder = state[props.match.params.folderId];
+    const folderId = props.match.params.folderId
+    const folder = state[folderId];
     console.log(state[props.match.params.folderId] === state['spam']);
     console.log(state);
     console.log(folder.emails);
@@ -33,7 +35,8 @@ const mapStateToProps = (state, props) => {
         folderName: folder.name,
         emailList: Object.keys(folder.emails).map(emailId =>
             folder.emails[emailId]
-        )
+        ),
+        folderId
     }
 };
 
