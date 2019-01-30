@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import { Link } from 'react-router-dom';
 import './email-list.css';
 
 
@@ -10,7 +11,7 @@ export function EmailList(props) {
                 {email.from}
             </div>
             <div className="email-list-email-title">
-                {email.title}
+                <Link to={`/${props.match.params.folderId}/${email.id}`}>{email.title}</Link>
             </div>
         </li>
     );
